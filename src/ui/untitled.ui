@@ -1,0 +1,536 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1091</width>
+    <height>775</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Label-it</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normalon>:/svg/qt.svg</normalon>
+   </iconset>
+  </property>
+  <widget class="QScrollArea" name="centralwidget">
+   <property name="widgetResizable">
+    <bool>true</bool>
+   </property>
+   <widget class="Canvas" name="canvas">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>994</width>
+      <height>682</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1091</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="title">
+     <string>&amp;File</string>
+    </property>
+    <addaction name="actionOpen"/>
+    <addaction name="actionNext_Image"/>
+    <addaction name="actionPrev_Image"/>
+    <addaction name="actionOpen_Dir"/>
+    <addaction name="actionOpen_Recent"/>
+    <addaction name="actionSave"/>
+    <addaction name="actionSave_as"/>
+    <addaction name="actionClose"/>
+    <addaction name="separator"/>
+    <addaction name="actionQuit"/>
+   </widget>
+   <widget class="QMenu" name="menuEdit">
+    <property name="title">
+     <string>&amp;Edit</string>
+    </property>
+    <addaction name="actionCreate_Polygons"/>
+    <addaction name="actionCreate_Rectangle"/>
+    <addaction name="actionCreate_Circle"/>
+    <addaction name="actionDuplicate_Polygon"/>
+    <addaction name="actionEdit_Polygon"/>
+    <addaction name="actionDelete_Polygon"/>
+    <addaction name="separator"/>
+    <addaction name="actionUndo"/>
+    <addaction name="actionRedo"/>
+   </widget>
+   <widget class="QMenu" name="menuView">
+    <property name="title">
+     <string>&amp;View</string>
+    </property>
+    <addaction name="actionLabel_List"/>
+    <addaction name="actionFill_List"/>
+    <addaction name="separator"/>
+    <addaction name="actionHide_Polygons"/>
+    <addaction name="actionView_Polygons"/>
+    <addaction name="separator"/>
+    <addaction name="actionZoom_in"/>
+    <addaction name="actionZoom_out"/>
+    <addaction name="separator"/>
+    <addaction name="actionFit_Window"/>
+    <addaction name="actionFit_Width"/>
+   </widget>
+   <widget class="QMenu" name="menuHelp">
+    <property name="title">
+     <string>&amp;Help</string>
+    </property>
+    <addaction name="actionAbout"/>
+   </widget>
+   <widget class="QMenu" name="menuSettings">
+    <property name="title">
+     <string>Tools</string>
+    </property>
+    <addaction name="actionconvert_to_VOC"/>
+    <addaction name="actionconvert_to_mask"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuEdit"/>
+   <addaction name="menuView"/>
+   <addaction name="menuSettings"/>
+   <addaction name="menuHelp"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionOpen"/>
+   <addaction name="actionOpen_Dir"/>
+   <addaction name="separator"/>
+   <addaction name="actionCreate_Polygons"/>
+   <addaction name="actionCreate_Rectangle"/>
+   <addaction name="actionCreate_Circle"/>
+   <addaction name="separator"/>
+   <addaction name="actionEdit_Polygon"/>
+   <addaction name="actionDuplicate_Polygon"/>
+   <addaction name="actionDelete_Polygon"/>
+   <addaction name="separator"/>
+   <addaction name="actionPrev_Image"/>
+   <addaction name="actionNext_Image"/>
+   <addaction name="actionSave"/>
+   <addaction name="separator"/>
+   <addaction name="actionZoom_in"/>
+   <addaction name="actionZoom_out"/>
+   <addaction name="actionFit_Window"/>
+   <addaction name="actionFit_Width"/>
+  </widget>
+  <widget class="QDockWidget" name="dock_label_list">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="windowTitle">
+    <string>Labels</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>2</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents_4">
+    <widget class="QListWidget" name="listWidget_labels">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>256</width>
+       <height>311</height>
+      </rect>
+     </property>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QDockWidget" name="dock_file_list">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="windowTitle">
+    <string>File List</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>2</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents_2">
+    <widget class="QWidget" name="layoutWidget">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>258</width>
+       <height>311</height>
+      </rect>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <property name="sizeConstraint">
+       <enum>QLayout::SetMaximumSize</enum>
+      </property>
+      <item>
+       <widget class="QLineEdit" name="lineEdit_filename">
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QListWidget" name="listWidget_files"/>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+  </widget>
+  <action name="actionOpen">
+   <property name="icon">
+    <iconset>
+     <normalon>:/svg/open.svg</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Open</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+  </action>
+  <action name="actionNext_Image">
+   <property name="icon">
+    <iconset>
+     <normalon>:/svg/next.svg</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Next Image</string>
+   </property>
+   <property name="shortcut">
+    <string>D</string>
+   </property>
+  </action>
+  <action name="actionPrev_Image">
+   <property name="icon">
+    <iconset>
+     <normalon>:/svg/previous.svg</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Prev Image</string>
+   </property>
+   <property name="shortcut">
+    <string>A</string>
+   </property>
+  </action>
+  <action name="actionOpen_Dir">
+   <property name="icon">
+    <iconset>
+     <normalon>:/svg/dir.svg</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Open Dir</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+U</string>
+   </property>
+  </action>
+  <action name="actionOpen_Recent">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Open Recent</string>
+   </property>
+  </action>
+  <action name="actionSave">
+   <property name="icon">
+    <iconset>
+     <normalon>:/svg/save.svg</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>&amp;Save</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="actionSave_as">
+   <property name="text">
+    <string>Save As</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+S</string>
+   </property>
+  </action>
+  <action name="actionClose">
+   <property name="text">
+    <string>&amp;Close</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+F4</string>
+   </property>
+  </action>
+  <action name="actionQuit">
+   <property name="text">
+    <string>&amp;Quit</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+  </action>
+  <action name="actionCreate_Polygons">
+   <property name="icon">
+    <iconset>
+     <normalon>:/svg/polygon.svg</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Create Polygons</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
+   </property>
+  </action>
+  <action name="actionCreate_Rectangle">
+   <property name="icon">
+    <iconset>
+     <normalon>:/svg/square_four_angle_point.svg</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Create Rectangle</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+R</string>
+   </property>
+  </action>
+  <action name="actionCreate_Circle">
+   <property name="icon">
+    <iconset>
+     <normalon>:/svg/circle.svg</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Create Circle</string>
+   </property>
+  </action>
+  <action name="actionEdit_Polygon">
+   <property name="icon">
+    <iconset>
+     <normalon>:/svg/change.svg</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Edit Polygon</string>
+   </property>
+   <property name="toolTip">
+    <string>Edit Polygon</string>
+   </property>
+  </action>
+  <action name="actionDelete_Polygon">
+   <property name="icon">
+    <iconset>
+     <normalon>:/svg/trash.svg</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Delete Polygon</string>
+   </property>
+  </action>
+  <action name="actionUndo">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>&amp;Undo</string>
+   </property>
+  </action>
+  <action name="actionLabel_List">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Label List</string>
+   </property>
+  </action>
+  <action name="actionFill_List">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="text">
+    <string>Fill List</string>
+   </property>
+  </action>
+  <action name="actionHide_Polygons">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Hide Polygons</string>
+   </property>
+  </action>
+  <action name="actionView_Polygons">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Show Polygons</string>
+   </property>
+  </action>
+  <action name="actionZoom_in">
+   <property name="icon">
+    <iconset resource="../img/img.qrc">
+     <normaloff>:/svg/zoom-in.svg</normaloff>:/svg/zoom-in.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Zoom in</string>
+   </property>
+   <property name="shortcut">
+    <string>=, +</string>
+   </property>
+  </action>
+  <action name="actionZoom_out">
+   <property name="icon">
+    <iconset resource="../img/img.qrc">
+     <normaloff>:/svg/zoom-out.svg</normaloff>:/svg/zoom-out.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Zoom out</string>
+   </property>
+   <property name="shortcut">
+    <string>-, _</string>
+   </property>
+  </action>
+  <action name="actionFit_Window">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="checked">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../img/img.qrc">
+     <normaloff>:/svg/zoomReset.svg</normaloff>:/svg/zoomReset.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Fit Window</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+F</string>
+   </property>
+  </action>
+  <action name="actionFit_Width">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset resource="../img/img.qrc">
+     <normaloff>:/svg/fit-width.svg</normaloff>:/svg/fit-width.svg</iconset>
+   </property>
+   <property name="text">
+    <string>Fit Width</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+F</string>
+   </property>
+  </action>
+  <action name="actionDuplicate_Polygon">
+   <property name="icon">
+    <iconset>
+     <normalon>:/svg/copy.svg</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>Duplicate Polygon</string>
+   </property>
+  </action>
+  <action name="actionAbout">
+   <property name="icon">
+    <iconset>
+     <normalon>:/svg/mummy.svg</normalon>
+    </iconset>
+   </property>
+   <property name="text">
+    <string>About</string>
+   </property>
+  </action>
+  <action name="actionRedo">
+   <property name="enabled">
+    <bool>false</bool>
+   </property>
+   <property name="text">
+    <string>Redo</string>
+   </property>
+  </action>
+  <action name="actionconvert_to_VOC">
+   <property name="text">
+    <string>convert to VOC</string>
+   </property>
+  </action>
+  <action name="actionconvert_to_mask">
+   <property name="text">
+    <string>convert to mask</string>
+   </property>
+  </action>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>Canvas</class>
+   <extends>QWidget</extends>
+   <header>canvas.h</header>
+   <container>1</container>
+   <slots>
+    <signal>zoomRequest(int)</signal>
+    <signal>scrollRequest(int,int)</signal>
+    <signal>newShape(bool)</signal>
+    <signal>selectionChanged(bool)</signal>
+    <signal>shapeMoved()</signal>
+    <signal>drawingPolygon(bool)</signal>
+    <signal>hideRRect(bool)</signal>
+    <signal>hideNRect(bool)</signal>
+    <signal>status(str)</signal>
+    <signal>cancelDraw()</signal>
+    <signal>toggleEdit(bool)</signal>
+   </slots>
+  </customwidget>
+ </customwidgets>
+ <resources>
+  <include location="../img/img.qrc"/>
+ </resources>
+ <connections/>
+</ui>

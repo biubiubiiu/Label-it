@@ -1,0 +1,34 @@
+<RCC>
+  <qresource prefix="jpg">
+    <file>author.jpg</file>
+  </qresource>
+  <qresource prefix="svg">
+    <file>change.svg</file>
+    <file>copy.svg</file>
+    <file>square_four_angle_point.svg</file>
+    <file>trash.svg</file>
+    <file>rectangle.svg</file>
+    <file>mummy.svg</file>
+    <file>circle.svg</file>
+    <file>polygon.svg</file>
+    <file>qt.svg</file>
+    <file>dir.svg</file>
+    <file>display.svg</file>
+    <file>dummy.svg</file>
+    <file>dummy-img.svg</file>
+    <file>export.svg</file>
+    <file>find.svg</file>
+    <file>fit-width.svg</file>
+    <file>fullscreen.svg</file>
+    <file>next.svg</file>
+    <file>open.svg</file>
+    <file>previous.svg</file>
+    <file>rects.svg</file>
+    <file>save.svg</file>
+    <file>settings.svg</file>
+    <file>zoom100.svg</file>
+    <file>zoom-in.svg</file>
+    <file>zoom-out.svg</file>
+    <file>zoomReset.svg</file>
+  </qresource>
+</RCC>
